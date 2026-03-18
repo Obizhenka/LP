@@ -1,0 +1,237 @@
+/* Базовые стили */
+html { scroll-behavior: smooth; 
+}
+body { margin: 0; font-family: 'Arial', sans-serif; 
+    line-height: 1.6; 
+    color: #2c3e50; 
+}
+
+.container { max-width: 1100px; 
+    margin: 0 auto; 
+    padding: 0 20px; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+}
+.container-small { max-width: 800px; 
+    margin: 0 auto; 
+    text-align: center; 
+}
+
+/* Шапка */
+.header { background: #1b3022; 
+    color: white; 
+    padding: 15px 0; 
+    position: fixed; 
+    width: 100%; 
+    top: 0; 
+    z-index: 100; 
+}
+.nav-link { color: white; 
+    text-decoration: none; 
+    margin-left: 20px; 
+    transition: 0.3s; 
+}
+.nav-link:hover { color: #a3d9a5; }
+
+/* Hero */
+.hero {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 20px 60px;
+    background-image: url('https://resize.tripster.ru/EXDR5MBVrqG_Z6L0Pw2j63IOKJU=/fit-in/1220x600/filters:no_upscale()/https://cdn.tripster.ru/photos/a1de9bb7-7e0d-40c2-8562-74b59601685a.jpg');
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    background-blend-mode: overlay;
+    color: white;
+}
+
+/* Слайдер */
+.slider-wrapper { position: relative; 
+    width: 100%; 
+    height: 500px; 
+    overflow: hidden; 
+}
+
+#container { position: relative; 
+    width: 100%; 
+    height: 100%; 
+}
+
+.slide-image {
+    position: absolute;
+    width: 100%; height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+}
+.slide-image.active { opacity: 1; }
+
+.select-slide-buttons-container {
+    display: flex;
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    gap: 15px;
+    z-index: 10;
+}
+.select-slide-buttons {
+    width: 15px; height: 15px;
+    border-radius: 50%;
+    background: white;
+    cursor: pointer;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+    transition: 0.3s;
+}
+.select-slide-buttons.active { background: #4a7c59; 
+    transform: scale(1.2); 
+}
+
+/* Модальное окно */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.modal-content {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    position: relative;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+}
+.modal-close {
+    position: absolute;
+    top: 10px; right: 15px;
+    font-size: 24px;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+/* Остальные блоки из оригинала */
+.reviews-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.section-title {
+    margin-bottom: 40px;
+    font-size: 32px;
+    color: #1b3022;
+}
+
+/* Контейнер для карточек на Flexbox */
+.reviews-flex {
+    display: flex;
+    flex-wrap: wrap;         /* Позволяет карточкам переноситься на новую строку */
+    justify-content: center; /* Центрирует карточки по горизонтали */
+    gap: 20px;               /* Расстояние между карточками */
+    max-width: 900px;        /* Ограничиваем общую ширину, чтобы карточки не растягивались на весь экран */
+}
+
+/* Стили карточек (делаем их короче) */
+.review-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    border-left: 6px solid #4a7c59;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    text-align: left;
+    
+    /* Устанавливаем ширину так, чтобы в ряд влезало по 2 карточки */
+    flex: 0 1 calc(50% - 20px); 
+    min-width: 280px; /* Чтобы на маленьких экранах они не были слишком узкими */
+    box-sizing: border-box;
+}
+
+.review-text {
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.review-author {
+    font-weight: bold;
+    color: #4a7c59;
+}
+
+/* Адаптивность: на мобильных устройствах карточки займут всю ширину */
+@media (max-width: 600px) {
+    .review-card {
+        flex: 1 1 100%;
+    }
+} 
+
+.btn {
+    display: inline-block; 
+    background: #4a7c59;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none; 
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.footer { padding: 20px; 
+    background: #111; 
+    color: #777; 
+    text-align: center; 
+}
+
+.features-container {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;   
+    gap: 40px;              
+}
+
+.features-title {
+    margin: 0;
+    font-size: 32px;
+    color: #1b3022;
+    text-align: center;
+}
+
+
+.features-flex {
+    display: flex;
+    flex-direction: row;      
+    justify-content: center;  
+    gap: 20px;                
+    width: 100%;              
+}
+
+
+.features-flex .card {
+    flex: 1;                 
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    text-align: left;        
+    min-width: 250px;        
+}
+
+
+@media (max-width: 768px) {
+    .features-flex {
+        flex-direction: column; 
+    }
+}
